@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 検索避け（必要に応じて公開時に調整してください） -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>古川 智規 | プロフィール・ご案内</title>
+  <style>
+    :root {
+      --bg: #f7f5f0;
+      --card: #ffffff;
+      --text: #1f2421;
+      --muted: #5c6660;
+      --accent: #3b2d54; /* 落ち着いた紫系アクセント */
+      --accent-soft: #f2eef8;
+      --border: #e2ddd3;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px 14px 44px;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    .container {
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    h1 {
+      margin: 0 0 4px;
+      font-size: 24px;
+      letter-spacing: 0.04em;
+    }
+
+    .name-en {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .role-list {
+      margin: 0 0 14px;
+      padding-left: 18px;
+      font-size: 14px;
+    }
+
+    .lead {
+      margin: 0;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 15px;
+      border-left: 4px solid var(--accent);
+      padding-left: 10px;
+    }
+
+    .btn-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn {
+      display: block;
+      text-decoration: none;
+      background: #faf9f6;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn:hover {
+      background: #f0ece3;
+      border-color: var(--accent);
+    }
+
+    .btn small {
+      display: block;
+      font-weight: 400;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .meta-item {
+      font-size: 13.5px;
+      margin-bottom: 8px;
+    }
+
+    .meta-item:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 最下層カード：神社HP（準備中）＆ランダム音楽プレーヤー */
+    .shrine-box {
+      background: #faf9f6;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      margin-bottom: 14px;
+    }
+
+    .badge-prep {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid #d5cbe6;
+      border-radius: 999px;
+      padding: 2px 10px;
+      margin-bottom: 6px;
+    }
+
+    .shrine-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin: 0 0 4px;
+    }
+
+    .shrine-desc {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0 0 10px;
+    }
+
+    .btn-disabled {
+      display: block;
+      text-align: center;
+      background: #efede8;
+      color: #7d8580;
+      border: 1px dashed #c8c2b6;
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: default;
+      user-select: none;
+    }
+
+    .player-box {
+      background: #faf9f6;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+    }
+
+    .player-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .player-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .track-title {
+      font-size: 14px;
+      font-weight: 700;
+      margin: 0 0 4px;
+    }
+
+    .track-note {
+      font-size: 12px;
+      color: var(--muted);
+      margin: 0 0 10px;
+    }
+
+    audio {
+      width: 100%;
+      height: 38px;
+      margin-bottom: 10px;
+    }
+
+    .player-controls {
+      display: flex;
+      gap: 8px;
+    }
+
+    .ctrl-btn {
+      flex: 1;
+      appearance: none;
+      background: #ffffff;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .ctrl-btn:hover {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 24px;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <!-- カード1：基本プロフィール -->
+    <section class="card">
+      <div class="eyebrow">PROFILE &amp; LINKS</div>
+      <h1>古川 智規</h1>
+      <div class="name-en">Tomoki Furukawa</div>
+      <ul class="role-list">
+        <li>編集者・記者・フリーランスライター（メディア・執筆活動）</li>
+        <li>正一位智稲荷大神 斎主／四柱推命認定鑑定師</li>
+        <li>3級ファイナンシャル・プランニング技能士</li>
+      </ul>
+      <p class="lead">
+        お名刺交換ありがとうございます。執筆記事やSNS、各種ご案内はこちらにまとめております。
+      </p>
+    </section>
+
+    <!-- カード2：リンク集 -->
+    <section class="card">
+      <h2>リンク・ご案内</h2>
+      <div class="btn-list">
+        <a class="btn" href="https://b.hatena.ne.jp/jj6tje/bookmark" target="_blank" rel="noopener noreferrer">
+          執筆記事ストック（はてなブックマーク等）
+          <small>公開中の記事・関連リンク一覧へ</small>
+        </a>
+        <a class="btn" href="https://example.com/your-sns" target="_blank" rel="noopener noreferrer">
+          SNS（集約アカウント）
+          <small>最新の発信・交友窓口はこちら</small>
+        </a>
+      </div>
+    </section>
+
+    <!-- カード3：その他のご案内 -->
+    <section class="card">
+      <h2>その他のご案内</h2>
+      <div class="meta-item"><strong>鑑定・ご相談：</strong>お名刺記載の連絡先またはご案内窓口まで</div>
+      <div class="meta-item"><strong>連絡先：</strong>メール・お電話等はお名刺表面・裏面をご確認ください</div>
+    </section>
+
+    <!-- カード4（最下層）：正一位智稲荷大神（準備中）＆まいひめ楽曲ランダムプレーヤー -->
+    <section class="card">
+      <h2>社務所・奉納音曲のご案内</h2>
+
+      <!-- 神社HP準備中枠（本公開時は https://tomoinari.wordpress.com/ へのリンクに差し替え） -->
+      <div class="shrine-box">
+        <span class="badge-prep">公式HP 準備中</span>
+        <div class="shrine-title">正一位智稲荷大神</div>
+        <p class="shrine-desc">
+          公式サイトは現在公開準備中でございます。公開まで今しばらくお待ちください。
+        </p>
+        <div class="btn-disabled" aria-disabled="true">
+          公式サイト（公開準備中）
+        </div>
+      </div>
+
+      <!-- まいひめ楽曲ランダム再生プレーヤー -->
+      <div class="player-box">
+        <div class="player-header">
+          <span class="player-label">雅楽BGM / ランダム再生プレーヤー</span>
+        </div>
+        <div class="track-title" id="trackTitle">読み込み中...</div>
+        <p class="track-note" id="trackNote">
+          再生ボタンでランダム再生が始まります。曲終了時またはボタン操作で次の曲へ切り替わります。
+        </p>
+        <audio id="bgmPlayer" controls preload="none"></audio>
+        <div class="player-controls">
+          <button type="button" class="ctrl-btn" id="nextRandomBtn">別の曲をランダム選曲</button>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      &copy; Tomoki Furukawa
+    </footer>
+  </main>
+
+  <script>
+    const tracks = [
+      {
+        title: "古殿の息吹",
+        note: "奉納雅楽BGM（ランダム再生）",
+        src: "https://jj6tje-dev.github.io/tomoinari-assets/bgm01_koten-no-ibuki.mp3"
+      },
+      {
+        title: "霧の山門",
+        note: "奉納雅楽BGM・第2作（ランダム再生）",
+        src: "https://jj6tje-dev.github.io/tomoinari-assets/%E3%81%BE%E3%81%84%E3%81%B2%E3%82%81_HP%E7%94%A8%E9%9B%85%E6%A5%BDBGM_%E7%AC%AC2%E4%BD%9C_%E9%9C%A7%E3%81%AE%E5%B1%B1%E9%96%80.mp3"
+      },
+      {
+        title: "書庫の葛の葉",
+        note: "奉納雅楽BGM・第3作（ランダム再生）",
+        src: "https://jj6tje-dev.github.io/tomoinari-assets/%E3%81%BE%E3%81%84%E3%81%B2%E3%82%81_HP%E7%94%A8%E9%9B%85%E6%A5%BDBGM_%E7%AC%AC3%E4%BD%9C_%E6%9B%B8%E5%BA%AB%E3%81%AE%E8%91%9B%E3%81%AE%E8%91%89.mp3"
+      }
+    ];
+
+    const player = document.getElementById("bgmPlayer");
+    const titleEl = document.getElementById("trackTitle");
+    const noteEl = document.getElementById("trackNote");
+    const nextBtn = document.getElementById("nextRandomBtn");
+    let currentIndex = -1;
+
+    function pickRandomTrack(autoPlay = false) {
+      if (!tracks.length) return;
+      let nextIndex = Math.floor(Math.random() * tracks.length);
+      if (tracks.length > 1) {
+        while (nextIndex === currentIndex) {
+          nextIndex = Math.floor(Math.random() * tracks.length);
+        }
+      }
+      currentIndex = nextIndex;
+      const track = tracks[currentIndex];
+      titleEl.textContent = track.title;
+      noteEl.textContent = track.note;
+
+      if (track.src) {
+        player.src = track.src;
+        if (autoPlay) {
+          player.play().catch(() => {});
+        }
+      } else {
+        player.removeAttribute("src");
+        player.load();
+      }
+    }
+
+    // 曲が終わったら次の曲をランダム選曲して自動再生
+    player.addEventListener("ended", () => {
+      pickRandomTrack(true);
+    });
+
+    // 「別の曲をランダム選曲」ボタン
+    nextBtn.addEventListener("click", () => {
+      const wasPlaying = !player.paused;
+      pickRandomTrack(wasPlaying);
+    });
+
+    // 初回表示時にランダムで1曲セット
+    pickRandomTrack(false);
+  </script>
+</body>
+</html>
